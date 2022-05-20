@@ -21,7 +21,7 @@ def main():
         allStrings = False
 
     susFunctionsFound, malapi_content = getWindowsSusFunctions(strings)
-    outputResults(susFunctionsFound, malapi_content, allStrings=allStrings, verbose=args["verbose"], out_file=args["out_file"])
+    outputResults(susFunctionsFound, malapi_content, in_file=args["file"], allStrings=allStrings, verbose=args["verbose"], out_file=args["out_file"])
     
 
 def getStrings(file):
@@ -107,7 +107,7 @@ def getWindowsSusFunctions(strings):
 
     return discoveredWindowsFunctions, malapi_content
 
-def outputResults(susFunctionsFound, malapi_content, allStrings, verbose, out_file):
+def outputResults(susFunctionsFound, malapi_content, in_file, allStrings, verbose, out_file):
 
     try:
         f = open(out_file, "w")
@@ -120,8 +120,9 @@ def outputResults(susFunctionsFound, malapi_content, allStrings, verbose, out_fi
     print("|  \/  | __ _| |  / \  |  _ \_ _|  _ \ ", file=f)
     print("| |\/| |/ _` | | / _ \ | |_) | || | | |", file=f)
     print("| |  | | (_| | |/ ___ \|  __/| || |_| |", file=f)
-    print("|_|  |_|\__,_|_/_/   \_\_|  |___|____/\n", file=f)
+    print("|_|  |_|\__,_|_/_/   \_\_|  |___|____/", file=f)
 
+    print("\n+++++++++++++++++ Analysis of " + in_file + " +++++++++++++++++\n", file=f)
 
     # Create table for attack capabilities
     capabilitiesTable = []
