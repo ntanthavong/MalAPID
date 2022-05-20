@@ -18,8 +18,3 @@ options:
   -v, --verbose         Increase verbosity
   -o OUT_FILE, --out-file OUT_FILE
                         Save the output to a file
-<<<<<<< HEAD
-```
-=======
-```
->>>>>>> 1d7c23515f77fcafe24715a7c027771241f9f243
