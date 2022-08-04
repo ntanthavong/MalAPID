@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
+import os
 import argparse
 import json
 import rust_strings
+import re
 from tabulate import tabulate
 
 def main():
@@ -9,6 +12,7 @@ def main():
     parser = argparse.ArgumentParser(description="MalAPID finds suspicious strings and maps them to MITRE ATT&CK Techniques", epilog="Credits to mrd0x and https://malapi.io for the data.")
     parser.add_argument("-s", "--strings", action="store_true", help="Output all strings found")
     parser.add_argument("-v", "--verbose", action="store_true", help="Increase verbosity")
+    parser.add_argument("-i", "--interesting-strings", action="store_true", help="Find URLs, IPs, and paths in strings")
     parser.add_argument("-o", "--out-file", help="Save the output to a file")
     parser.add_argument("file", help="Input PE file to get strings data or text file with strings data already in it")
     args = vars(parser.parse_args()) # convert to dictionary
@@ -20,9 +24,14 @@ def main():
     else:
         allStrings = False
 
+    interesting_strings=args["interesting_strings"]
+    if interesting_strings:
+        interesting_strings=findInterestingStrings(strings)
+    else:
+        interesting_strings=False
+
     susFunctionsFound, malapi_content = getWindowsSusFunctions(strings)
-    outputResults(susFunctionsFound, malapi_content, in_file=args["file"], allStrings=allStrings, verbose=args["verbose"], out_file=args["out_file"])
-    
+    outputResults(susFunctionsFound, malapi_content, allStrings=allStrings, verbose=args["verbose"], out_file=args["out_file"], interesting_strings=interesting_strings)
 
 def getStrings(file):
 
@@ -83,7 +92,7 @@ def getWindowsSusFunctions(strings):
     # Windows Functions that exist on MalAPI.io
 
     # Load the data from MalAPI.io. Data as of 05/12/2022
-    f = open('malapi_content.json')
+    f = open(os.sep.join([os.path.dirname(os.path.abspath(__file__)), 'malapi_content.json']))
     malapi_content = json.load(f)
     f.close()
 
@@ -107,7 +116,28 @@ def getWindowsSusFunctions(strings):
 
     return discoveredWindowsFunctions, malapi_content
 
-def outputResults(susFunctionsFound, malapi_content, in_file, allStrings, verbose, out_file):
+def findInterestingStrings(strings):
+
+    # Uses regex to find URLs, IPs and Paths
+
+    interestingStrings=[]
+
+    for string in strings:
+
+        url = re.search(".*\.(com|net|org|de|icu|uk|ru|info|top|xyz|tk|cn|ga|cf|nl|live|buzz).*", string)
+        ip = re.search(".*\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}.*", string)
+        path = re.search(".*:\\\S.*", string)
+
+        if url != None:
+            print (interestingStrings.append(url.string))
+        if ip != None:
+            print (interestingStrings.append(ip.string))
+        if path != None:
+            print (interestingStrings.append(path.string))
+
+    return interestingStrings
+
+def outputResults(susFunctionsFound, malapi_content, allStrings, verbose, out_file, interesting_strings):
 
     try:
         f = open(out_file, "w")
@@ -120,9 +150,8 @@ def outputResults(susFunctionsFound, malapi_content, in_file, allStrings, verbos
     print("|  \/  | __ _| |  / \  |  _ \_ _|  _ \ ", file=f)
     print("| |\/| |/ _` | | / _ \ | |_) | || | | |", file=f)
     print("| |  | | (_| | |/ ___ \|  __/| || |_| |", file=f)
-    print("|_|  |_|\__,_|_/_/   \_\_|  |___|____/", file=f)
+    print("|_|  |_|\__,_|_/_/   \_\_|  |___|____/\n", file=f)
 
-    print("\n+++++++++++++++++ Analysis of " + in_file + " +++++++++++++++++\n", file=f)
 
     # Create table for attack capabilities
     capabilitiesTable = []
@@ -160,14 +189,21 @@ def outputResults(susFunctionsFound, malapi_content, in_file, allStrings, verbos
             susFunctionsTable.append(susFunctionsContent)
 
         print(tabulate(capabilitiesTable, headers=capabilitiesHeaders, tablefmt="psql"), file=f)
-        print(tabulate(susFunctionsTable, headers=susFunctionsHeaders, tablefmt="psql"), file=f)
+        print(tabulate(susFunctionsTable, headers=susFunctionsHeaders, tablefmt="grid", maxcolwidths=[None, 64]), file=f)
+
+    # Create table for interesting strings
+    if interesting_strings != False:
+        interestingStringsTable = []
+        for string in interesting_strings:
+            interestingStringsTable.append([string.strip()])
+        print(tabulate(interestingStringsTable, headers=["Interesting Strings"], tablefmt="psql", maxcolwidths=[100]), file=f)
 
     # Create table for all strings of the file if -s used
     if allStrings != False:
         allStringsTable = []
         for string in allStrings:
-            allStringsTable.append([string])
-        print(tabulate(allStringsTable, headers=["All Strings"], tablefmt="psql"), file=f)
+            allStringsTable.append([string.strip()])
+        print(tabulate(allStringsTable, headers=["All Strings"], tablefmt="psql", maxcolwidths=[100]), file=f)
 
     print("\nCredits to mrd0x and https://malapi.io for the data.", file=f)
 
