@@ -129,11 +129,11 @@ def findInterestingStrings(strings):
         path = re.search(".*:\\\S.*", string)
 
         if url != None:
-            print (interestingStrings.append(url.string))
+            interestingStrings.append(url.string)
         if ip != None:
-            print (interestingStrings.append(ip.string))
+            interestingStrings.append(ip.string)
         if path != None:
-            print (interestingStrings.append(path.string))
+            interestingStrings.append(path.string)
 
     return interestingStrings
 
