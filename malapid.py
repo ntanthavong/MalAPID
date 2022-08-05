@@ -193,11 +193,18 @@ def outputResults(susFunctionsFound, malapi_content, allStrings, verbose, out_fi
 
     # Create table for interesting strings
     if interesting_strings != False:
-        interestingStringsTable = []
-        for string in interesting_strings:
-            interestingStringsTable.append([string.strip()])
-        print(tabulate(interestingStringsTable, headers=["Interesting Strings"], tablefmt="psql", maxcolwidths=[100]), file=f)
-
+    
+        if len(interesting_strings) == 0:
+            print("+++++++++++++++++++++++++++++++", file=f)
+            print("No interesting strings found!", file=f)
+            print("+++++++++++++++++++++++++++++++", file=f)
+        
+        else:
+            interestingStringsTable = []
+            for string in interesting_strings:
+                interestingStringsTable.append([string.strip()])
+            print(tabulate(interestingStringsTable, headers=["Interesting Strings"], tablefmt="psql", maxcolwidths=[100]), file=f)
+        
     # Create table for all strings of the file if -s used
     if allStrings != False:
         allStringsTable = []
