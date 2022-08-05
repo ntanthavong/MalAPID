@@ -1,5 +1,5 @@
 # MalAPID
- MalAPID finds suspicious strings of binaries and maps them to MITRE ATT&CK Techniques
+ MalAPID finds suspicious strings of binaries and maps them to common attack techniques
  The data used was pulled from https://malapi.io/.
 # Install Dependencies
 MalAPID uses rust_strings to extract strings and tabulate formats the output. They are required for the tool to run.<br><br>
