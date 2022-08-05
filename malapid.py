@@ -9,7 +9,7 @@ from tabulate import tabulate
 def main():
 
     # Initialize argparser
-    parser = argparse.ArgumentParser(description="MalAPID finds suspicious strings and maps them to MITRE ATT&CK Techniques", epilog="Credits to mrd0x and https://malapi.io for the data.")
+    parser = argparse.ArgumentParser(description="MalAPID finds suspicious strings and maps them to common attack techniques", epilog="Credits to mrd0x and https://malapi.io for the data.")
     parser.add_argument("-s", "--strings", action="store_true", help="Output all strings found")
     parser.add_argument("-v", "--verbose", action="store_true", help="Increase verbosity")
     parser.add_argument("-i", "--interesting-strings", action="store_true", help="Find URLs, IPs, and paths in strings")
