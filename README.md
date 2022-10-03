@@ -18,5 +18,6 @@ optional arguments:
   -v, --verbose         Increase verbosity
   -i, --interesting-strings
                         Find URLs, IPs, and paths in strings
+  -p, --patterns        Identify known malicious patterns
   -o OUT_FILE, --out-file OUT_FILE
                         Save the output to a file
