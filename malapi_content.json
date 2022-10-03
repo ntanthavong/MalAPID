@@ -32,24 +32,16 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/psapi/nf-psapi-enumprocessmodules"
     },
-    "EnumProcessModulesEx": {
-        "desciption": "EnumProcessModulesEx is used to enumerate the loaded modules (executables and DLLs) for a given process. Malware enumerates through modules when doing injection.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Enumeration"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/psapi/nf-psapi-enumprocessmodulesex"
-    },
-    "FindFirstFileA": {
-        "desciption": "FindFirstFileA is used to search through a directory and enumerate the filesystem.",
+    "FindFirstFile": {
+        "desciption": "FindFirstFile is used to search through a directory and enumerate the filesystem.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-findfirstfilea"
     },
-    "FindNextFileA": {
-        "desciption": "FindNextFileA is used to search through a directory and enumerate the filesystem.",
+    "FindNextFile": {
+        "desciption": "FindNextFile is used to search through a directory and enumerate the filesystem.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
@@ -65,17 +57,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getlogicalprocessorinformation"
     },
-    "GetLogicalProcessorInformationEx": {
-        "desciption": "GetLogicalProcessorInformationEx is used to retrieve information about logical processors and related hardware. The function is used by malware for anti-debugging purposes.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Enumeration",
-            "Anti-Debugging"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getlogicalprocessorinformationex"
-    },
-    "GetModuleBaseNameA": {
-        "desciption": "GetModuleBaseNameA is used to retrieve the base name of a specified module.",
+    "GetModuleBaseName": {
+        "desciption": "GetModuleBaseName is used to retrieve the base name of a specified module.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration",
@@ -91,16 +74,16 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winnls/nf-winnls-getsystemdefaultlangid"
     },
-    "GetVersionExA": {
-        "desciption": "GetVersionExA is a classic method used to retrieve the Windows version.",
+    "GetVersion": {
+        "desciption": "GetVersion is a classic method used to retrieve the Windows version.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-getversionexa"
     },
-    "GetWindowsDirectoryA": {
-        "desciption": "GetWindowsDirectoryA is used to retreive the path to the Windows directory. This function may be used by malware retrieve the Windows path for additional installations.",
+    "GetWindowsDirectory": {
+        "desciption": "GetWindowsDirectory is used to retreive the path to the Windows directory. This function may be used by malware retrieve the Windows path for additional installations.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
@@ -177,8 +160,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/tlhelp32/nf-tlhelp32-thread32next"
     },
-    "GetSystemDirectoryA": {
-        "desciption": "GetSystemDirectoryA retrieve the path of the system directory.",
+    "GetSystemDirectory": {
+        "desciption": "GetSystemDirectory retrieve the path of the system directory.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
@@ -202,8 +185,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-readfile"
     },
-    "GetComputerNameA": {
-        "desciption": "GetComputerNameA is used to retrieve the computer name. This is commonly used by malware for anti-debugging purposes.",
+    "GetComputerName": {
+        "desciption": "GetComputerName is used to retrieve the computer name. This is commonly used by malware for anti-debugging purposes.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration",
@@ -211,8 +194,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getcomputernamea"
     },
-    "VirtualQueryEx": {
-        "desciption": "VirtualQueryEx is used to retrieve information about a range of pages within the virtual address space of a specified process. This function is commonly used by malware to enumerate an external process.",
+    "VirtualQuery": {
+        "desciption": "VirtualQuery is used to retrieve information about a range of pages within the virtual address space of a specified process. This function is commonly used by malware to enumerate an external process.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
@@ -283,8 +266,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getcurrentprocessid"
     },
-    "SearchPathA": {
-        "desciption": "SearchPathA is used to search for a specified file in a specified path.",
+    "SearchPath": {
+        "desciption": "SearchPath is used to search for a specified file in a specified path.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
@@ -299,40 +282,40 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfiletime"
     },
-    "GetFileAttributesA": {
-        "desciption": "GetFileAttributesA is used to retrieve file system attributes for a specified file or directory.",
+    "GetFileAttributes": {
+        "desciption": "GetFileAttributes is used to retrieve file system attributes for a specified file or directory.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getfileattributesa"
     },
-    "LookupPrivilegeValueA": {
-        "desciption": "LookupPrivilegeValueA is used to retrieve the locally unique identifier (LUID) used on a specified system to locally represent the specified privilege name. This function is commonly used by malware in process injection or token stealing.",
+    "LookupPrivilegeValue": {
+        "desciption": "LookupPrivilegeValue is used to retrieve the locally unique identifier (LUID) used on a specified system to locally represent the specified privilege name. This function is commonly used by malware in process injection or token stealing.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-lookupprivilegevaluea"
     },
-    "LookupAccountNameA": {
-        "desciption": "LookupAccountNameA is used to accept the name of a system and an account as input. It retrieves a security identifier (SID) for the account and the name of the domain on which the account was found.",
+    "LookupAccountName": {
+        "desciption": "LookupAccountName is used to accept the name of a system and an account as input. It retrieves a security identifier (SID) for the account and the name of the domain on which the account was found.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-lookupaccountnamea"
     },
-    "GetCurrentHwProfileA": {
-        "desciption": "GetCurrentHwProfileA is used to retrieve information about the current hardware profile for the local computer. This function is commonly used by malware to anti-debugging purposes.",
+    "GetCurrentHwProfile": {
+        "desciption": "GetCurrentHwProfile is used to retrieve information about the current hardware profile for the local computer. This function is commonly used by malware to anti-debugging purposes.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getcurrenthwprofilea"
     },
-    "GetUserNameA": {
-        "desciption": "GetUserNameA is used to retrieve the username associated with the current thread. This function is used by malware for anti-debugging purposes.",
+    "GetUserName": {
+        "desciption": "GetUserName is used to retrieve the username associated with the current thread. This function is used by malware for anti-debugging purposes.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration",
@@ -340,17 +323,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-getusernamea"
     },
-    "RegEnumKeyExA": {
-        "desciption": "RegEnumKeyExA is used to enumerate the subkeys of the specified open registry key.",
-        "library": "Advapi32.dll",
-        "associated_attacks": [
-            "Enumeration",
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regenumkeyexa"
-    },
-    "RegEnumValueA": {
-        "desciption": "RegEnumValueA is used to enumerate the values for the specified open registry key",
+    "RegEnumValue": {
+        "desciption": "RegEnumValue is used to enumerate the values for the specified open registry key",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration",
@@ -358,24 +332,24 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regenumvaluea"
     },
-    "RegQueryInfoKeyA": {
-        "desciption": "RegQueryInfoKeyA is used to retrieves information about the specified registry key.",
+    "RegQueryInfoKey": {
+        "desciption": "RegQueryInfoKey is used to retrieves information about the specified registry key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regqueryinfokeya"
     },
-    "RegQueryMultipleValuesA": {
-        "desciption": "RegQueryMultipleValuesA is used to retrieve the type and data for a list of value names associated with an open registry key.",
+    "RegQueryMultipleValues": {
+        "desciption": "RegQueryMultipleValues is used to retrieve the type and data for a list of value names associated with an open registry key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regquerymultiplevaluesa"
     },
-    "RegQueryValueExA": {
-        "desciption": "RegQueryValueExA is used to retrieve the type and data for the specified value name associated with an open registry key.",
+    "RegQueryValue": {
+        "desciption": "RegQueryValue is used to retrieve the type and data for the specified value name associated with an open registry key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration"
@@ -399,8 +373,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winternl/nf-winternl-ntqueryinformationprocess"
     },
-    "NtQuerySystemEnvironmentValueEx": {
-        "desciption": "NtQuerySystemEnvironmentValueEx is used to locate a specified system environment variable and return its value.",
+    "NtQuerySystemEnvironmentValue": {
+        "desciption": "NtQuerySystemEnvironmentValue is used to locate a specified system environment variable and return its value.",
         "library": "Ntdll.dll",
         "associated_attacks": [
             "Enumeration"
@@ -455,8 +429,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/iphlpapi/nf-iphlpapi-getadaptersinfo"
     },
-    "PathFileExistsA": {
-        "desciption": "PathFileExistsA is used to determine whether a path to a file system object such as a file or folder is valid. This function is used by malware to enumerate files and installed programs (e.g. AV solutions).",
+    "PathFileExists": {
+        "desciption": "PathFileExists is used to determine whether a path to a file system object such as a file or folder is valid. This function is used by malware to enumerate files and installed programs (e.g. AV solutions).",
         "library": "Shlwapi.dll",
         "associated_attacks": [
             "Enumeration"
@@ -500,8 +474,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getlogicaldrives"
     },
-    "GetDriveTypeA": {
-        "desciption": "GetDriveTypeA is used to determine whether a disk drive is a removable / fixed / CD-ROM / RAM disk or network drive.",
+    "GetDriveType": {
+        "desciption": "GetDriveType is used to determine whether a disk drive is a removable / fixed / CD-ROM / RAM disk or network drive.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration",
@@ -510,8 +484,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-getdrivetypea"
     },
-    "RegEnumKeyA": {
-        "desciption": "RegEnumKeyA is used to enumerate the subkeys of the specified open registry key. The function retrieves the name of one subkey each time it is called.",
+    "RegEnumKey": {
+        "desciption": "RegEnumKey is used to enumerate the subkeys of the specified open registry key. The function retrieves the name of one subkey each time it is called.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Enumeration",
@@ -519,8 +493,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regenumkeya"
     },
-    "WNetEnumResourceA": {
-        "desciption": "The WNetEnumResourceA function continues an enumeration of network resources that was started by a call to the WNetOpenEnum function.",
+    "WNetEnumResource": {
+        "desciption": "The WNetEnumResource function continues an enumeration of network resources that was started by a call to the WNetOpenEnum function.",
         "library": "Mpr.dll",
         "associated_attacks": [
             "Enumeration",
@@ -536,8 +510,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winnetwk/nf-winnetwk-wnetcloseenum"
     },
-    "FindFirstUrlCacheEntryA": {
-        "desciption": "FindFirstUrlCacheEntryA is used to begin the enumeration of the Internet cache.",
+    "FindFirstUrlCacheEntry": {
+        "desciption": "FindFirstUrlCacheEntry is used to begin the enumeration of the Internet cache.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Enumeration",
@@ -545,8 +519,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-findfirsturlcacheentrya"
     },
-    "FindNextUrlCacheEntryA": {
-        "desciption": "FindNextUrlCacheEntryA is used to retrieve the next entry in the Internet cache.",
+    "FindNextUrlCacheEntry": {
+        "desciption": "FindNextUrlCacheEntry is used to retrieve the next entry in the Internet cache.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Enumeration",
@@ -554,38 +528,21 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-findnexturlcacheentrya"
     },
-    "WNetAddConnection2A": {
-        "desciption": "The WNetAddConnection2A function makes a connection to a network resource and can redirect a local device to the network resource. The WNetAddConnection2 function supersedes the WNetAddConnection function.",
-        "library": "Mpr.dll",
-        "associated_attacks": [
-            "Enumeration",
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnection2a"
-    },
-    "WNetAddConnectionA": {
-        "desciption": "The WNetAddConnectionA function enables the calling application to connect a local device to a network resource. A successful connection is persistent, meaning that the system automatically restores the connection during subsequent logon operations.",
+    "WNetAddConnection": {
+        "desciption": "The WNetAddConnection function enables the calling application to connect a local device to a network resource. A successful connection is persistent, meaning that the system automatically restores the connection during subsequent logon operations.",
         "library": "Mpr.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winnetwk/nf-winnetwk-wnetaddconnectiona"
     },
-    "EnumResourceTypesA": {
-        "desciption": "EnumResourceTypesA is used to enumerate resource types within a binary module. Starting with Windows Vista, this is typically a language-neutral Portable Executable (LN file), and the enumeration also includes resources from one of the corresponding language-specific resource files (.mui files)\u00e2\u20ac\u201dif one exists\u00e2\u20ac\u201dthat contain localizable language resources. It is also possible to use hModule to specify a .mui file, in which case only that file is searched for resource types. Alternately, applications can call EnumResourceTypesEx, which provides more precise control over which resource files to enumerate.",
+    "EnumResourceTypes": {
+        "desciption": "EnumResourceTypes is used to enumerate resource types within a binary module. Starting with Windows Vista, this is typically a language-neutral Portable Executable (LN file), and the enumeration also includes resources from one of the corresponding language-specific resource files (.mui files)\u00e2\u20ac\u201dif one exists\u00e2\u20ac\u201dthat contain localizable language resources. It is also possible to use hModule to specify a .mui file, in which case only that file is searched for resource types. Alternately, applications can call EnumResourceTypesEx, which provides more precise control over which resource files to enumerate.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Enumeration"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-enumresourcetypesa"
-    },
-    "EnumResourceTypesExA": {
-        "desciption": "EnumResourceTypesExA is used to enumerate resource types associated with a specified binary module. The search can include both a language-neutral Portable Executable file (LN file) and its associated .mui files. Alternately, it can be limited to a single binary module of any type, or to the .mui files associated with a single LN file. The search can also be limited to a single associated .mui file that contains resources for a specific language.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Enumeration"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-enumresourcetypesexw"
     },
     "GetSystemTimeAsFileTime": {
         "desciption": "Retrieves the current system date and time. The information is in Coordinated Universal Time (UTC) format. This function is commonly used by malware for anti-debugging.",
@@ -604,8 +561,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winnls/nf-winnls-getthreadlocale"
     },
-    "EnumSystemLocalesA": {
-        "desciption": "EnumSystemLocalesA is used enumerate installed locale identifiers, all of the supported identifiers or alternate sort identifiers, according to which flag is passed to the API. Can be used to geofence infection campaigns or avoid infecting systems from a certain region/country. It can also be used to jump to allocated shellcode and execute it.",
+    "EnumSystemLocales": {
+        "desciption": "EnumSystemLocales is used enumerate installed locale identifiers, all of the supported identifiers or alternate sort identifiers, according to which flag is passed to the API. Can be used to geofence infection campaigns or avoid infecting systems from a certain region/country. It can also be used to jump to allocated shellcode and execute it.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Injection",
@@ -615,8 +572,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winnls/nf-winnls-enumsystemlocalesw"
     },
-    "CreateFileMappingA": {
-        "desciption": "CreateFileMappingA creates a handle to a file mapping that loads a file into memory and makes it accessible via memory addresses. Launchers, loaders, and injectors use this function to read and modify PE files.",
+    "CreateFileMapping": {
+        "desciption": "CreateFileMapping creates a handle to a file mapping that loads a file into memory and makes it accessible via memory addresses. Launchers, loaders, and injectors use this function to read and modify PE files.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Injection",
@@ -624,8 +581,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-createfilemappinga"
     },
-    "CreateProcessA": {
-        "desciption": "CreateProcessA is used to create a process. This function is used by malware in several process injection attacks such as process hollowing.",
+    "CreateProcess": {
+        "desciption": "CreateProcess is used to create a process. This function is used by malware in several process injection attacks such as process hollowing.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Injection"
@@ -640,16 +597,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethread"
     },
-    "CreateRemoteThreadEx": {
-        "desciption": "CreateRemoteThreadEx is used to create a thread that runs in the virtual address space of another process.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createremotethreadex"
-    },
-    "GetModuleHandleA": {
-        "desciption": "GetModuleHandleW is used to retrieve a module handle for the specified module. The module must have been loaded by the calling process. This function is often used along with GetProcAddress to dynamically retrieve the address of a function for evasion purposes.",
+    "GetModuleHandle": {
+        "desciption": "GetModuleHandle is used to retrieve a module handle for the specified module. The module must have been loaded by the calling process. This function is often used along with GetProcAddress to dynamically retrieve the address of a function for evasion purposes.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Injection",
@@ -682,23 +631,14 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/heapapi/nf-heapapi-heapcreate"
     },
-    "LoadLibraryA": {
-        "desciption": "LoadLibraryA is used to load a specified module into the address space of the calling process. Malware commonly use this to load DLLs dynamically for evasion purposes.",
+    "LoadLibrary": {
+        "desciption": "LoadLibrary is used to load a specified module into the address space of the calling process. Malware commonly use this to load DLLs dynamically for evasion purposes.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Injection",
             "Evasion"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibrarya"
-    },
-    "LoadLibraryExA": {
-        "desciption": "LoadLibraryExA is used to load a specified module into the address space of the calling process. Malware commonly use this to load DLLs dynamically for evasion purposes.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection",
-            "Evasion"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadlibraryexa"
     },
     "LocalAlloc": {
         "desciption": "LocalAlloc is used for heap allocation and manipulation.",
@@ -715,30 +655,6 @@
             "Injection"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile"
-    },
-    "MapViewOfFile2": {
-        "desciption": "MapViewOfFile2 is used for heap allocation and manipulation.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile2"
-    },
-    "MapViewOfFile3": {
-        "desciption": "MapViewOfFile3 is used for heap allocation and manipulation.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffile3"
-    },
-    "MapViewOfFileEx": {
-        "desciption": "MapViewOfFileEx is used for heap allocation and manipulation.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-mapviewoffileex"
     },
     "OpenThread": {
         "desciption": "OpenThread is used to get a handle on a specified thread. It is commonly seen in process injection techniques.",
@@ -805,14 +721,6 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc"
     },
-    "VirtualAllocEx": {
-        "desciption": "VirtualAllocEx is often used by malware to allocate memory in a remote process as part of process injection.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualallocex"
-    },
     "VirtualProtect": {
         "desciption": "VirtualProtect is often used by malware to modify memory protection (often to allow write or execution).",
         "library": "Kernel32.dll",
@@ -820,14 +728,6 @@
             "Injection"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualprotect"
-    },
-    "VirtualProtectEx": {
-        "desciption": "VirtualProtectEx is often used by malware to modify memory protection in a remote process (often to allow write or execution).",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualprotectex"
     },
     "WriteProcessMemory": {
         "desciption": "Writing data into a specified region of memory. This function is often used by malware as part of process injection to inject malicious code into a specified process.",
@@ -844,14 +744,6 @@
             "Injection"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualallocexnuma"
-    },
-    "VirtualAlloc2": {
-        "desciption": "VirtualAlloc2 is used to reserve or changes the state of a region of pages in the virtual address space of a specified process.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc2"
     },
     "VirtualAlloc2FromApp": {
         "desciption": "VirtualAlloc2FromApp is used to reserve or changes the state of a region of pages in the virtual address space of the calling process.",
@@ -902,8 +794,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocess"
     },
-    "OpenFileMappingA": {
-        "desciption": "OpenFileMappingA is used to open a named file mapping object.",
+    "OpenFileMapping": {
+        "desciption": "OpenFileMapping is used to open a named file mapping object.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Injection"
@@ -958,8 +850,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-adjusttokenprivileges"
     },
-    "CreateProcessAsUserA": {
-        "desciption": "CreateProcessAsUserA is used to create a new process and its primary thread.",
+    "CreateProcessAsUser": {
+        "desciption": "CreateProcessAsUser is used to create a new process and its primary thread.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Injection"
@@ -974,8 +866,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocesstoken"
     },
-    "CreateProcessWithTokenW": {
-        "desciption": "CreateProcessWithTokenW is used to create a new process and its primary thread.",
+    "CreateProcessWithToken": {
+        "desciption": "CreateProcessWithToken is used to create a new process and its primary thread.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Injection"
@@ -1014,14 +906,6 @@
         ],
         "documentation": "http://undocumented.ntinternals.net/index.html?page=UserMode%2FUndocumented%20Functions%2FNT%20Objects%2FProcess%2FNtCreateProcess.html"
     },
-    "NtCreateProcessEx": {
-        "desciption": "NtCreateProcessEx is used to create a new process.",
-        "library": "Ntdll.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://titanwolf.org/Network/Articles/Article?AID=47158f72-b6f0-4b0e-b9d6-a51af615aac6#gsc.tab=0"
-    },
     "NtCreateSection": {
         "desciption": "NtCreateSection is used to create a new section object.",
         "library": "Ntdll.dll",
@@ -1037,14 +921,6 @@
             "Injection"
         ],
         "documentation": "http://undocumented.ntinternals.net/index.html?page=UserMode%2FUndocumented%20Functions%2FNT%20Objects%2FThread%2FNtCreateThread.html"
-    },
-    "NtCreateThreadEx": {
-        "desciption": "NtCreateThreadEx is used to create a new thread.",
-        "library": "Ntdll.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://securityxploded.com/ntcreatethreadex.php"
     },
     "NtCreateUserProcess": {
         "desciption": "NtCreateUserProcess is used to create a new process.",
@@ -1096,22 +972,6 @@
     },
     "NtQueueApcThread": {
         "desciption": "NtQueueApcThread is used to execute code for a different thread. This function is commonly used as part of process injection.",
-        "library": "Ntdll.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://repnz.github.io/posts/apc/user-apc/#ntqueueapcthreadex2-some-new-friends-in-the-fast-ring"
-    },
-    "NtQueueApcThreadEx": {
-        "desciption": "NtQueueApcThreadEx is used to execute code for a different thread. This function is commonly used as part of process injection.",
-        "library": "Ntdll.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": "https://repnz.github.io/posts/apc/user-apc/#ntqueueapcthreadex2-some-new-friends-in-the-fast-ring"
-    },
-    "NtQueueApcThreadEx2": {
-        "desciption": "NtQueueApcThreadEx2 is a new system call that allows to pass both UserApcFlags and MemoryReserveHandle.",
         "library": "Ntdll.dll",
         "associated_attacks": [
             "Injection"
@@ -1200,22 +1060,13 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/wdm/nf-wdm-rtlcopymemory"
     },
-    "SetPropA": {
-        "desciption": "SetPropA is used to add a new entry or changes an existing entry in the property list of the specified window. This function is commonly used by malware to register a property and wait for its invocation to execute malicious commands.",
+    "SetProp": {
+        "desciption": "SetProp is used to add a new entry or changes an existing entry in the property list of the specified window. This function is commonly used by malware to register a property and wait for its invocation to execute malicious commands.",
         "library": "User32.dll",
         "associated_attacks": [
             "Injection"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setpropa"
-    },
-    "WaitForSingleObjectEx": {
-        "desciption": "WaitForSingleObjectEx is used to delay the execution of an object. This function is commonly used to allow time for shellcode being executed within a thread to run. It is also used for time-based evasion.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection",
-            "Evasion"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobjectex"
     },
     "WaitForMultipleObjects": {
         "desciption": "WaitForMultipleObjects is used to wait until one or all of the specified objects are in the signaled state or the time-out interval elapses. This function is commonly used to allow time for shellcode to execute or for time-based evasion.",
@@ -1225,15 +1076,6 @@
             "Evasion"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitformultipleobjects"
-    },
-    "WaitForMultipleObjectsEx": {
-        "desciption": "WaitForMultipleObjectsEx is used to wait until one or all of the specified objects are in the signaled state or the time-out interval elapses. This function is commonly used to allow time for shellcode to execute or for time-based evasion.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Injection",
-            "Evasion"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitformultipleobjectsex"
     },
     "KeInsertQueueApc": {
         "desciption": "KeInsertQueueApc is responsible for attaching an initialized APC to the APC queue of its target thread",
@@ -1277,14 +1119,6 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-duplicatetoken"
     },
-    "NtReadVirtualMemoryEx": {
-        "desciption": "NtReadVirtualMemoryEx is used to copy data in the specified address range from the address space of the specified process into the specified buffer of the current process",
-        "library": "Ntdll.dll",
-        "associated_attacks": [
-            "Injection"
-        ],
-        "documentation": ""
-    },
     "CreateProcessInternal": {
         "desciption": "CreateProcessInternal is an undocumented API for process creation. According to Windows Internals, CreateProcess and CreateProcessAsUser actually lead to this API, which is responsible for starting the process creation in user land. Eventually it calls NtCreateUserProcess for the kernel land operations. This API is commonly used for spawning a suspended process to be hollowed/injected.",
         "library": "Kernel32.dll",
@@ -1294,8 +1128,8 @@
         ],
         "documentation": "https://medium.com/@Achilles8284/the-birth-of-a-process-part-1-bfb4fdac070e"
     },
-    "UuidFromStringA": {
-        "desciption": "UuidFromStringA is used to convert a string to a UUID. This function can be abused to both decode data and write it to memory without using common functions such as memcpy or WriteProcessMemory.",
+    "UuidFromString": {
+        "desciption": "UuidFromString is used to convert a string to a UUID. This function can be abused to both decode data and write it to memory without using common functions such as memcpy or WriteProcessMemory.",
         "library": "Rpcrt4.dll",
         "associated_attacks": [
             "Evasion",
@@ -1304,8 +1138,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-uuidfromstringa"
     },
-    "DeleteFileA": {
-        "desciption": "DeleteFileA is used to delete an existing file. This function is used by malware to hide its tracks or tamper with an application.",
+    "DeleteFile": {
+        "desciption": "DeleteFile is used to delete an existing file. This function is used by malware to hide its tracks or tamper with an application.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Evasion"
@@ -1320,8 +1154,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-loadresource"
     },
-    "SetEnvironmentVariableA": {
-        "desciption": "SetEnvironmentVariableA sets the contents of the specified environment variable for the current process.  Setting custom envrinoment variables can be used for obfuscation and evasion purposes.",
+    "SetEnvironmentVariable": {
+        "desciption": "SetEnvironmentVariable sets the contents of the specified environment variable for the current process.  Setting custom envrinoment variables can be used for obfuscation and evasion purposes.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Evasion"
@@ -1345,22 +1179,13 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleep"
     },
-    "SetFileAttributesA": {
-        "desciption": "SetFileAttributesA is used to set attributes of a file or directory. This function is commonly used by malware to make a file or directory hidden.",
+    "SetFileAttributes": {
+        "desciption": "SetFileAttributes is used to set attributes of a file or directory. This function is commonly used by malware to make a file or directory hidden.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Evasion"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-setfileattributesa"
-    },
-    "SleepEx": {
-        "desciption": "SleepEx is used to suspend the execution of the current thread for a set time. This function is commonly used for time-based evasion by adding delays in the code.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Evasion",
-            "Anti-Debugging"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-sleepex"
     },
     "NtDelayExecution": {
         "desciption": "NtDelayExecution is used to suspend execution, similiar to the Sleep() API function. This function can be used by malware for evasion purposes.",
@@ -1370,8 +1195,8 @@
         ],
         "documentation": "https://undocumented.ntinternals.net/index.html?page=UserMode%2FUndocumented%20Functions%2FNT%20Objects%2FThread%2FNtDelayExecution.html"
     },
-    "CreateWindowExA": {
-        "desciption": "CreateWindowExA is used to create an overlapped, pop-up, or child window with an extended window style. This function is commonly used by malware to create invisible windows or for evasion purposes.",
+    "CreateWindow": {
+        "desciption": "CreateWindow is used to create an overlapped, pop-up, or child window with an extended window style. This function is commonly used by malware to create invisible windows or for evasion purposes.",
         "library": "User32.dll",
         "associated_attacks": [
             "Evasion"
@@ -1495,8 +1320,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-attachthreadinput"
     },
-    "CallNextHookEx": {
-        "desciption": "CallNextHookEx is used within code that is hooking an event set by SetWindowsHookEx. CallNextHookEx calls the next hook in the chain. This function is commonly used by keyloggers.",
+    "CallNextHook": {
+        "desciption": "CallNextHook is used within code that is hooking an event set by SetWindowsHookEx. CallNextHookEx calls the next hook in the chain. This function is commonly used by keyloggers.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
@@ -1527,14 +1352,6 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getdc"
     },
-    "GetDCEx": {
-        "desciption": "GetDCEx is used to retrieve a handle to a device context (DC) for the client area of a specified window or for the entire screen. This function is commonly used by spyware for taking screenshots.",
-        "library": "User32.dll",
-        "associated_attacks": [
-            "Spying"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getdcex"
-    },
     "GetForegroundWindow": {
         "desciption": "GetForegroundWindow is used to get a handle to the foreground window (the window with which the user is currently working). This function is commonly used by keyloggers and spyware to determine which window is being utilized at the moment by the user.",
         "library": "User32.dll",
@@ -1560,8 +1377,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getkeystate"
     },
-    "GetMessageA": {
-        "desciption": "GetMessageA is used to retrieve a message from the calling thread's message queue. This function is commonly used by keyloggers.",
+    "GetMessage": {
+        "desciption": "GetMessage is used to retrieve a message from the calling thread's message queue. This function is commonly used by keyloggers.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
@@ -1584,40 +1401,32 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getwindowdc"
     },
-    "MapVirtualKeyA": {
-        "desciption": "MapVirtualKeyA is used to map a virtual-key code into a scan code or character value, or translates a scan code into a virtual-key code. This function is commonly used by spyware and keyloggers.",
+    "MapVirtualKey": {
+        "desciption": "MapVirtualKey is used to map a virtual-key code into a scan code or character value, or translates a scan code into a virtual-key code. This function is commonly used by spyware and keyloggers.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mapvirtualkeya"
     },
-    "MapVirtualKeyExA": {
-        "desciption": "MapVirtualKeyExA is used to map a virtual-key code into a scan code or character value, or translates a scan code into a virtual-key code. This function is commonly used by spyware and keyloggers.",
-        "library": "User32.dll",
-        "associated_attacks": [
-            "Spying"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-mapvirtualkeyexa"
-    },
-    "PeekMessageA": {
-        "desciption": "PeekMessageA is used to check for incoming sent messages, checks the thread message queue for a posted message, and retrieves the message (if any exist).",
+    "PeekMessage": {
+        "desciption": "PeekMessage is used to check for incoming sent messages, checks the thread message queue for a posted message, and retrieves the message (if any exist).",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-peekmessagea"
     },
-    "PostMessageA": {
-        "desciption": "PostMessageA is used to post a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread to process the message.",
+    "PostMessage": {
+        "desciption": "PostMessage is used to post a message in the message queue associated with the thread that created the specified window and returns without waiting for the thread to process the message.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-postmessagea"
     },
-    "PostThreadMessageA": {
-        "desciption": "PostThreadMessageA is used to post a message to the message queue of the specified thread.",
+    "PostThreadMessage": {
+        "desciption": "PostThreadMessage is used to post a message to the message queue of the specified thread.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
@@ -1632,40 +1441,40 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-registerrawinputdevices"
     },
-    "SendMessageA": {
-        "desciption": "SendMessageA is used to send the specified message to a window or windows.",
+    "SendMessage": {
+        "desciption": "SendMessage is used to send the specified message to a window or windows.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessagea"
     },
-    "SendMessageCallbackA": {
-        "desciption": "SendMessageCallbackA is used to send the specified message to a window or windows.",
+    "SendMessageCallback": {
+        "desciption": "SendMessageCallback is used to send the specified message to a window or windows.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessagecallbacka"
     },
-    "SendMessageTimeoutA": {
-        "desciption": "SendMessageTimeoutA is used to send the specified message to a window or windows.",
+    "SendMessageTimeout": {
+        "desciption": "SendMessageTimeout is used to send the specified message to a window or windows.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendmessagetimeouta"
     },
-    "SendNotifyMessageA": {
-        "desciption": "SendNotifyMessageA is used to send the specified message to a window or windows.",
+    "SendNotifyMessage": {
+        "desciption": "SendNotifyMessage is used to send the specified message to a window or windows.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-sendnotifymessagea"
     },
-    "SetWindowsHookExA": {
-        "desciption": "SetWindowsHookExA is used to install an application-defined hook procedure into a hook chain. This function is commonly used by keyloggers.",
+    "SetWindowsHook": {
+        "desciption": "SetWindowsHook is used to install an application-defined hook procedure into a hook chain. This function is commonly used by keyloggers.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
@@ -1680,8 +1489,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwineventhook"
     },
-    "UnhookWindowsHookEx": {
-        "desciption": "UnhookWindowsHookEx is used to remove a hook procedure installed in a hook chain by the SetWindowsHookEx function.",
+    "UnhookWindowsHook": {
+        "desciption": "UnhookWindowsHook is used to remove a hook procedure installed in a hook chain by the SetWindowsHookEx function.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
@@ -1704,8 +1513,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wingdi/nf-wingdi-stretchblt"
     },
-    "GetKeynameTextA": {
-        "desciption": "The GetKeynameTextA function is used to retrieve a string that represents the name of a key.",
+    "GetKeynameText": {
+        "desciption": "The GetKeynameText function is used to retrieve a string that represents the name of a key.",
         "library": "User32.dll",
         "associated_attacks": [
             "Spying"
@@ -1720,37 +1529,29 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-winexec"
     },
-    "FtpPutFileA": {
-        "desciption": "FtpPutFileA is used to upload a file to a server via FTP.",
+    "FtpPutFile": {
+        "desciption": "FtpPutFile is used to upload a file to a server via FTP.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Internet"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-ftpputfilea"
     },
-    "HttpOpenRequestA": {
-        "desciption": "HttpOpenRequestA is used to create a HTTP request.",
+    "HttpOpenRequest": {
+        "desciption": "HttpOpenRequest is used to create a HTTP request.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Internet"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-httpopenrequesta"
     },
-    "HttpSendRequestA": {
-        "desciption": "HttpSendRequestA is used to send a HTTP request to a server.",
+    "HttpSendRequest": {
+        "desciption": "HttpSendRequest is used to send a HTTP request to a server.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Internet"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-httpsendrequesta"
-    },
-    "HttpSendRequestExA": {
-        "desciption": "HttpSendRequestExA is used to send a HTTP request to a server",
-        "library": "Wininet.dll",
-        "associated_attacks": [
-            "Internet"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-httpsendrequestexa"
     },
     "InternetCloseHandle": {
         "desciption": "InternetCloseHandle is used to close an internet handle.",
@@ -1760,16 +1561,16 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-internetclosehandle"
     },
-    "InternetOpenA": {
-        "desciption": "InternetOpenA is used to initialize the use of WinINet functions.",
+    "InternetOpen": {
+        "desciption": "InternetOpen is used to initialize the use of WinINet functions.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Internet"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-internetopenurla"
     },
-    "InternetOpenUrlA": {
-        "desciption": "InternetOpenUrlA is used to open a resource specified by a complete FTP or HTTP URL.",
+    "InternetOpenUrl": {
+        "desciption": "InternetOpenUrl is used to open a resource specified by a complete FTP or HTTP URL.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Internet"
@@ -1783,14 +1584,6 @@
             "Internet"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-internetreadfile"
-    },
-    "InternetReadFileExA": {
-        "desciption": "InternetReadFileExA is used to read data from a handle opened by the InternetOpenUrl or HttpOpenRequest function.",
-        "library": "Wininet.dll",
-        "associated_attacks": [
-            "Internet"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-internetreadfileexa"
     },
     "InternetWriteFile": {
         "desciption": "InternetWriteFile is used to write data to an open Internet file.",
@@ -1928,23 +1721,15 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-listen"
     },
-    "ShellExecuteA": {
-        "desciption": "ShellExecuteA is used to perform an operation on a specified file.",
+    "ShellExecute": {
+        "desciption": "ShellExecute is used to perform an operation on a specified file.",
         "library": "Shell32.dll",
         "associated_attacks": [
             "Internet"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecutea"
     },
-    "ShellExecuteExA": {
-        "desciption": "ShellExecuteExA is used to perform an operation on a specified file.",
-        "library": "Shell32.dll",
-        "associated_attacks": [
-            "Internet"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/shellapi/nf-shellapi-shellexecuteexa"
-    },
-    "DnsQuery_A": {
+    "DnsQuery": {
         "desciption": "DnsQuery_A is used to send a DNS query. This may be used for communications over a DNS tunnel.",
         "library": "Dnsapi.dll",
         "associated_attacks": [
@@ -1952,16 +1737,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/windns/nf-windns-dnsquery_a"
     },
-    "DnsQueryEx": {
-        "desciption": "DnsQueryEx is used to send a DNS query. This may be used for communications over a DNS tunnel.",
-        "library": "Dnsapi.dll",
-        "associated_attacks": [
-            "Internet"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/windns/nf-windns-dnsqueryex"
-    },
-    "WNetOpenEnumA": {
-        "desciption": "The WNetOpenEnumA function starts an enumeration of network resources or existing connections. You can continue the enumeration by calling the WNetEnumResource function.",
+    "WNetOpenEnum": {
+        "desciption": "The WNetOpenEnum function starts an enumeration of network resources or existing connections. You can continue the enumeration by calling the WNetEnumResource function.",
         "library": "Mpr.dll",
         "associated_attacks": [
             "Internet",
@@ -1969,24 +1746,24 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winnetwk/nf-winnetwk-wnetopenenuma"
     },
-    "InternetConnectA": {
-        "desciption": "InternetConnectA is used to open a File Transfer Protocol (FTP) or HTTP session for a given site.",
+    "InternetConnect": {
+        "desciption": "InternetConnect is used to open a File Transfer Protocol (FTP) or HTTP session for a given site.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Internet"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-internetconnecta"
     },
-    "InternetSetOptionA": {
-        "desciption": "InternetSetOptionA is used to set an Internet option.",
+    "InternetSetOption": {
+        "desciption": "InternetSetOption is used to set an Internet option.",
         "library": "Wininet.dll",
         "associated_attacks": [
             "Internet"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wininet/nf-wininet-internetsetoptiona"
     },
-    "WSASocketA": {
-        "desciption": "WSASocketA is used to create a socket that is bound to a specific transport-service provider.",
+    "WSASocket": {
+        "desciption": "WSASocket is used to create a socket that is bound to a specific transport-service provider.",
         "library": "Ws2_32.dll",
         "associated_attacks": [
             "Internet"
@@ -2033,8 +1810,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/sysinfoapi/nf-sysinfoapi-gettickcount"
     },
-    "OutputDebugStringA": {
-        "desciption": "OutputDebugStringA sends a string to the debugger for display. This function can be used as an anti-debugging technique.",
+    "OutputDebugString": {
+        "desciption": "OutputDebugString sends a string to the debugger for display. This function can be used as an anti-debugging technique.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Anti-Debugging"
@@ -2057,29 +1834,21 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/debugapi/nf-debugapi-isdebuggerpresent"
     },
-    "ExitWindowsEx": {
-        "desciption": "ExitWindowsEx is used to log off an interactive user, shuts down the system, or shuts down and restarts the system. This function is commonly used by malware as an anti-debugging technique.",
+    "ExitWindows": {
+        "desciption": "ExitWindows is used to log off an interactive user, shuts down the system, or shuts down and restarts the system. This function is commonly used by malware as an anti-debugging technique.",
         "library": "User32.dll",
         "associated_attacks": [
             "Anti-Debugging"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-exitwindowsex"
     },
-    "FindWindowA": {
-        "desciption": "FindWindowA is used to get a handle to the top-level window whose class name and window name match the specified strings. This function is commonly used by malware as an anti-debugging technique.",
+    "FindWindow": {
+        "desciption": "FindWindow is used to get a handle to the top-level window whose class name and window name match the specified strings. This function is commonly used by malware as an anti-debugging technique.",
         "library": "User32.dll",
         "associated_attacks": [
             "Anti-Debugging"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-findwindowa"
-    },
-    "FindWindowExA": {
-        "desciption": "FindWindowExA is used to get a handle to the top-level window whose class name and window name match the specified strings. This function is commonly used by malware as an anti-debugging technique.",
-        "library": "User32.dll",
-        "associated_attacks": [
-            "Anti-Debugging"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-findwindowexa"
     },
     "GetTickCount64": {
         "desciption": "GetTickCount64 is used to retrieve the number of milliseconds that have elapsed since the system was started. This function is used by malware for anti-debugging purposes by checking how long the system uptime is.",
@@ -2113,16 +1882,16 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-countclipboardformats"
     },
-    "CryptAcquireContextA": {
-        "desciption": "CryptAcquireContextA is used to acquire a handle to a particular key container within a particular cryptographic service provider (CSP)",
+    "CryptAcquireContext": {
+        "desciption": "CryptAcquireContext is used to acquire a handle to a particular key container within a particular cryptographic service provider (CSP)",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Ransomware"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wincrypt/nf-wincrypt-cryptacquirecontexta"
     },
-    "EncryptFileA": {
-        "desciption": "EncryptFileA is used to encrypt a file or directory.",
+    "EncryptFile": {
+        "desciption": "EncryptFile is used to encrypt a file or directory.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Ransomware"
@@ -2201,8 +1970,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/wincrypt/nf-wincrypt-cryptgenrandom"
     },
-    "DecryptFileA": {
-        "desciption": "DecryptFileA is used to decrypt an encrypted file or directory.",
+    "DecryptFile": {
+        "desciption": "DecryptFile is used to decrypt an encrypted file or directory.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Ransomware"
@@ -2257,37 +2026,29 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/namedpipeapi/nf-namedpipeapi-connectnamedpipe"
     },
-    "CopyFileA": {
-        "desciption": "CopyFileA is used to copy an existing file to a new file.",
+    "CopyFile": {
+        "desciption": "CopyFile is used to copy an existing file to a new file.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-copyfilea"
     },
-    "CreateFileA": {
-        "desciption": "CreateFileA is used to create a new file or opens an existing file.",
+    "CreateFile": {
+        "desciption": "CreateFile is used to create a new file or opens an existing file.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfilea"
     },
-    "CreateMutexA": {
-        "desciption": "CreateMutexA is used to create a new mutex object. Mutexs are often used by malware to prevent the reinfection of a system with the same or different malware variant.",
+    "CreateMutex": {
+        "desciption": "CreateMutex is used to create a new mutex object. Mutexs are often used by malware to prevent the reinfection of a system with the same or different malware variant.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-createmutexa"
-    },
-    "CreateMutexExA": {
-        "desciption": "CreateMutexExA is used to create a new mutex object. Mutexs are often used by malware to prevent the reinfection of a system with the same or different malware variant.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-createmutexexa"
     },
     "DeviceIoControl": {
         "desciption": "DeviceIoControl is used to send a control message from user space to a device driver. DeviceIoControl is popular with kernel malware because it is an easy, flexible way to pass information between user space and kernel space.",
@@ -2297,61 +2058,37 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/ioapiset/nf-ioapiset-deviceiocontrol"
     },
-    "FindResourceA": {
-        "desciption": "FindResourceA is used to find a resource in an executable or loaded DLL. Malware sometimes uses resources to store strings, configuration information, or other malicious files. If you see this function used, check for a .rsrc section in the malware\u2019s PE header.",
+    "FindResource": {
+        "desciption": "FindResource is used to find a resource in an executable or loaded DLL. Malware sometimes uses resources to store strings, configuration information, or other malicious files. If you see this function used, check for a .rsrc section in the malware\u2019s PE header.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-findresourcea"
     },
-    "FindResourceExA": {
-        "desciption": "FindResourceExA is used to find a resource in an executable or loaded DLL. Malware sometimes uses resources to store strings, configuration information, or other malicious files. If you see this function used, check for a .rsrc section in the malware\u2019s PE header.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-findresourceexa"
-    },
-    "GetModuleFileNameA": {
-        "desciption": "GetModuleFileNameA is used to return the filename of a module that is loaded in the current process. Malware can use this function to modify or copy files in the currently running process.",
+    "GetModuleFileName": {
+        "desciption": "GetModuleFileName is used to return the filename of a module that is loaded in the current process. Malware can use this function to modify or copy files in the currently running process.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulefilenamea"
     },
-    "GetModuleFileNameExA": {
-        "desciption": "GetModuleFileNameExA is used to return the filename of a module that is loaded in the current process. Malware can use this function to modify or copy files in the currently running process.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/psapi/nf-psapi-getmodulefilenameexa"
-    },
-    "GetTempPathA": {
-        "desciption": "GetTempPathA is used to retrieve the path of the directory designated for temporary files. This is often used by malware when it requires a location for additional installations.",
+    "GetTempPath": {
+        "desciption": "GetTempPath is used to retrieve the path of the directory designated for temporary files. This is often used by malware when it requires a location for additional installations.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-gettemppatha"
     },
-    "MoveFileA": {
-        "desciption": "MoveFileA is used to move an existing file or a directory, including its children.",
+    "MoveFile": {
+        "desciption": "MoveFile is used to move an existing file or a directory, including its children.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefilea"
-    },
-    "MoveFileExA": {
-        "desciption": "MoveFileExA is used to move an existing file or a directory, including its children.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-movefileexa"
     },
     "PeekNamedPipe": {
         "desciption": "Used to copy data from a named pipe without removing data from the \npipe. This function has been used by exploits targeting SMB vulnerabilities.",
@@ -2377,32 +2114,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-terminatethread"
     },
-    "CopyFile2": {
-        "desciption": "CopyFile2 is used to copy an existing file to a new file.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-copyfile2"
-    },
-    "CopyFileExA": {
-        "desciption": "CopyFileExA is used to copy an existing file to a new file.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-copyfileexa"
-    },
-    "CreateFile2": {
-        "desciption": "CreateFile2 is used to create a new file or opens an existing file.",
-        "library": "Kernel32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-createfile2"
-    },
-    "GetTempFileNameA": {
-        "desciption": "GetTempFileNameA is used to create a name for a temporary file. If a unique file name is generated, an empty file is created and the handle to it is released; otherwise, only a file name is generated.",
+    "GetTempFileName": {
+        "desciption": "GetTempFileName is used to create a name for a temporary file. If a unique file name is generated, an empty file is created and the handle to it is released; otherwise, only a file name is generated.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
@@ -2457,16 +2170,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-controlservice"
     },
-    "ControlServiceExA": {
-        "desciption": "ControlServiceExA is used to start, stop, modify, or send a signal to a running service. This function is commonly used by malware went it requires interaction with a service for malicious purposes.",
-        "library": "Advapi32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-controlserviceexa"
-    },
-    "CreateServiceA": {
-        "desciption": "CreateServiceA is used to create a service object and adds it to the specified service control manager database. This function is commonly used by malware for persistence.",
+    "CreateService": {
+        "desciption": "CreateService is used to create a service object and adds it to the specified service control manager database. This function is commonly used by malware for persistence.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
@@ -2481,96 +2186,80 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-deleteservice"
     },
-    "OpenSCManagerA": {
-        "desciption": "OpenSCManagerA is used to open a handle to the service control manager. This function is commonly used when a malware intends to interact with a service.",
+    "OpenSCManager": {
+        "desciption": "OpenSCManager is used to open a handle to the service control manager. This function is commonly used when a malware intends to interact with a service.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-openscmanagera"
     },
-    "OpenServiceA": {
-        "desciption": "OpenServiceA is used to open an existing service.",
+    "OpenService": {
+        "desciption": "OpenService is used to open an existing service.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-openservicea"
     },
-    "RegOpenKeyA": {
-        "desciption": "RegOpenKeyA is used to open a specified registry key.",
+    "RegOpenKey": {
+        "desciption": "RegOpenKey is used to open a specified registry key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regopenkeya"
     },
-    "RegOpenKeyExA": {
-        "desciption": "RegOpenKeyExA is used to open a specified registry key.",
-        "library": "Advapi32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regopenkeyexa"
-    },
-    "StartServiceA": {
-        "desciption": "StartServiceA is used to start a service.",
+    "StartService": {
+        "desciption": "StartService is used to start a service.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-startservicea"
     },
-    "StartServiceCtrlDispatcherA": {
-        "desciption": "StartServiceCtrlDispatcherA is used by a service to connect the main thread of the process to the service control manager.",
+    "StartServiceCtrlDispatcher": {
+        "desciption": "StartServiceCtrlDispatcher is used by a service to connect the main thread of the process to the service control manager.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winsvc/nf-winsvc-startservicectrldispatchera"
     },
-    "RegCreateKeyExA": {
-        "desciption": "RegCreateKeyExA is used to create a specified registry key. If the key already exists, the function opens it.",
+    "RegCreateKey": {
+        "desciption": "RegCreateKey is used to create a specified registry key. If the key already exists, the function opens it.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeyexa"
     },
-    "RegCreateKeyA": {
-        "desciption": "RegCreateKeyA is used to create a specified registry key. If the key already exists, the function opens it.",
-        "library": "Advapi32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeya"
-    },
-    "RegSetValueExA": {
-        "desciption": "RegSetValueExA is used to set a value and type for a given registry key.",
+    "RegSetValue": {
+        "desciption": "RegSetValue is used to set a value and type for a given registry key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regsetvalueexa"
     },
-    "RegSetKeyValueA": {
-        "desciption": "RegSetKeyValueA is used to set a value for a given registry key.",
+    "RegSetKeyValue": {
+        "desciption": "RegSetKeyValue is used to set a value for a given registry key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regsetkeyvaluea"
     },
-    "RegDeleteValueA": {
-        "desciption": "RegDeleteValueA is used to remove a named value from the specified registry key.",
+    "RegDeleteValue": {
+        "desciption": "RegDeleteValue is used to remove a named value from the specified registry key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regdeletevaluea"
     },
-    "RegGetValueA": {
-        "desciption": "RegGetValueA is used to retrieve the type and data for the specified registry value.",
+    "RegGetValue": {
+        "desciption": "RegGetValue is used to retrieve the type and data for the specified registry value.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
@@ -2593,16 +2282,16 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-reggetkeysecurity"
     },
-    "RegLoadKeyA": {
-        "desciption": "RegLoadKeyA is used to create a subkey under HKEY_USERS or HKEY_LOCAL_MACHINE and loads the data from the specified registry hive into that subkey.",
+    "RegLoadKey": {
+        "desciption": "RegLoadKey is used to create a subkey under HKEY_USERS or HKEY_LOCAL_MACHINE and loads the data from the specified registry hive into that subkey.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regloadkeya"
     },
-    "RegLoadMUIStringA": {
-        "desciption": "RegLoadMUIStringA is used to load the specified string from the specified key and subkey.",
+    "RegLoadMUIString": {
+        "desciption": "RegLoadMUIString is used to load the specified string from the specified key and subkey.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
@@ -2617,8 +2306,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regopencurrentuser"
     },
-    "RegOpenKeyTransactedA": {
-        "desciption": "RegOpenKeyTransactedA is used to open the specified registry key and associates it with a transaction",
+    "RegOpenKeyTransacted": {
+        "desciption": "RegOpenKeyTransacted is used to open the specified registry key and associates it with a transaction",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
@@ -2641,37 +2330,29 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regoverridepredefkey"
     },
-    "RegReplaceKeyA": {
-        "desciption": "RegReplaceKeyA is used to replace the file backing a registry key and all its subkeys with another file, so that when the system is next started, the key and subkeys will have the values stored in the new file.",
+    "RegReplaceKey": {
+        "desciption": "RegReplaceKey is used to replace the file backing a registry key and all its subkeys with another file, so that when the system is next started, the key and subkeys will have the values stored in the new file.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regreplacekeya"
     },
-    "RegRestoreKeyA": {
-        "desciption": "RegRestoreKeyA is used to read the registry information in a specified file and copies it over the specified key.",
+    "RegRestoreKey": {
+        "desciption": "RegRestoreKey is used to read the registry information in a specified file and copies it over the specified key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regrestorekeya"
     },
-    "RegSaveKeyA": {
-        "desciption": "RegSaveKeyA is used to save the specified key and all of its subkeys and values to a registry file, in the specified format.",
+    "RegSaveKey": {
+        "desciption": "RegSaveKey is used to save the specified key and all of its subkeys and values to a registry file, in the specified format.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regsavekeya"
-    },
-    "RegSaveKeyExA": {
-        "desciption": "RegSaveKeyExA is used to save the specified key and all of its subkeys and values to a registry file, in the specified format.",
-        "library": "Advapi32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regsavekeyexa"
     },
     "RegSetKeySecurity": {
         "desciption": "RegSetKeySecurity is used to set the security of an open registry key.",
@@ -2681,72 +2362,64 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regsetkeysecurity"
     },
-    "RegUnLoadKeyA": {
-        "desciption": "RegUnLoadKeyA is used to unload the specified registry key and its subkeys from the registry.",
+    "RegUnLoadKey": {
+        "desciption": "RegUnLoadKey is used to unload the specified registry key and its subkeys from the registry.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regunloadkeya"
     },
-    "RegConnectRegistryA": {
-        "desciption": "RegConnectRegistryA is used to establish a connection to a predefined registry key on another computer.",
+    "RegConnectRegistry": {
+        "desciption": "RegConnectRegistry is used to establish a connection to a predefined registry key on another computer.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regconnectregistrya"
     },
-    "RegCopyTreeA": {
-        "desciption": "RegCopyTreeA is used to copy the specified registry key, along with its values and subkeys, to the specified destination key.",
+    "RegCopyTree": {
+        "desciption": "RegCopyTree is used to copy the specified registry key, along with its values and subkeys, to the specified destination key.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcopytreea"
     },
-    "RegCreateKeyTransactedA": {
-        "desciption": "RegCreateKeyTransactedA is used to create the specified registry key and associates it with a transaction. If the key already exists, the function opens it.",
+    "RegCreateKeyTransacted": {
+        "desciption": "RegCreateKeyTransacted is used to create the specified registry key and associates it with a transaction. If the key already exists, the function opens it.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regcreatekeytransacteda"
     },
-    "RegDeleteKeyA": {
-        "desciption": "RegDeleteKeyA is used to delete a subkey and its values from the specified platform-specific view of the registry.",
+    "RegDeleteKey": {
+        "desciption": "RegDeleteKey is used to delete a subkey and its values from the specified platform-specific view of the registry.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regdeletekeya"
     },
-    "RegDeleteKeyExA": {
-        "desciption": "RegDeleteKeyExA is used to delete a subkey and its values from the specified platform-specific view of the registry.",
-        "library": "Advapi32.dll",
-        "associated_attacks": [
-            "Helper"
-        ],
-        "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regdeletekeyexa"
-    },
-    "RegDeleteKeyTransactedA": {
-        "desciption": "RegDeleteKeyTransactedA is used to delete a subkey and its values from the specified platform-specific view of the registry as a transacted operation.",
+    "RegDeleteKeyTransacted": {
+        "desciption": "RegDeleteKeyTransacted is used to delete a subkey and its values from the specified platform-specific view of the registry as a transacted operation.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regdeletekeytransacteda"
     },
-    "RegDeleteKeyValueA": {
-        "desciption": "RegDeleteKeyValueA is used to remove the specified value from the specified registry key and subkey.",
+    "RegDeleteKeyValue": {
+        "desciption": "RegDeleteKeyValue is used to remove the specified value from the specified registry key and subkey.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winreg/nf-winreg-regdeletekeyvaluea"
     },
-    "RegDeleteTreeA": {
-        "desciption": "RegDeleteTreeA is used to delete the subkeys and values of the specified key recursively.",
+    "RegDeleteTree": {
+        "desciption": "RegDeleteTree is used to delete the subkeys and values of the specified key recursively.",
         "library": "Advapi32.dll",
         "associated_attacks": [
             "Helper"
@@ -2825,8 +2498,8 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/ntifs/nf-ntifs-ntsetinformationthread"
     },
-    "NtSetSystemEnvironmentValueEx": {
-        "desciption": "NtSetSystemEnvironmentValueEx is used to set a system environment variable.",
+    "NtSetSystemEnvironmentValue": {
+        "desciption": "NtSetSystemEnvironmentValue is used to set a system environment variable.",
         "library": "Ntdll.dll",
         "associated_attacks": [
             "Helper"
@@ -2873,8 +2546,8 @@
         ],
         "documentation": "https://www.codeproject.com/Articles/43405/Protecting-Your-Process-with-RtlSetProcessIsCriti"
     },
-    "DrawTextExA": {
-        "desciption": "DrawTextExA is used to draw formatted text in the specified rectangle. This function has been used by ransomware for writing ransom notes.",
+    "DrawText": {
+        "desciption": "DrawText is used to draw formatted text in the specified rectangle. This function has been used by ransomware for writing ransom notes.",
         "library": "User32.dll",
         "associated_attacks": [
             "Helper"
@@ -2897,16 +2570,16 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setclipboarddata"
     },
-    "SetWindowLongA": {
-        "desciption": "SetWindowLongA is used to changes an attribute of a specified window.",
+    "SetWindowLong": {
+        "desciption": "SetWindowLong is used to changes an attribute of a specified window.",
         "library": "User32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setwindowlonga"
     },
-    "SetWindowLongPtrA": {
-        "desciption": "SetWindowLongPtrA is used to changes an attribute of a specified window.",
+    "SetWindowLongPtr": {
+        "desciption": "SetWindowLongPtr is used to changes an attribute of a specified window.",
         "library": "User32.dll",
         "associated_attacks": [
             "Helper"
@@ -2985,16 +2658,16 @@
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/namedpipeapi/nf-namedpipeapi-createpipe"
     },
-    "CallWindowProcA": {
-        "desciption": "CallWindowProcA is used to pass message information to the specified window procedure.",
+    "CallWindowProc": {
+        "desciption": "CallWindowProc is used to pass message information to the specified window procedure.",
         "library": "User32.dll",
         "associated_attacks": [
             "Helper"
         ],
         "documentation": "https://docs.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-callwindowproca"
     },
-    "lstrcatA": {
-        "desciption": "lstrcatA is used to append one string to another.",
+    "lstrcat": {
+        "desciption": "lstrcat is used to append one string to another.",
         "library": "Kernel32.dll",
         "associated_attacks": [
             "Helper"
