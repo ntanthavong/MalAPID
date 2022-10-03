@@ -7,7 +7,7 @@ MalAPID uses rust_strings to extract strings and tabulate formats the output. Th
 When using, ensure the malapid.py and malapi_content.json are in the same directory.
 # Usage
 ```
-usage: malapid.py [-h] [-s] [-v] [-i] [-o OUT_FILE] file
+usage: malapid.py [-h] [-s] [-v] [-i] [-p] [-o OUT_FILE] file
 
 positional arguments:
   file                  Input PE file to get strings data or text file with strings data already in it
